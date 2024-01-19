@@ -1,22 +1,19 @@
-const string = 'lorem insump'
-const number = 123456
-const array = ['curso numero 1', 'youtube', 4, 1000]
-const bollean = true
-const funcion = () => 1 + 1
-const obeject = { nombre: 'Franklin', edad: 4 }
-const date = new Date()
+import { PropTypes } from "prop-types"
 
-export const PrimerComponente = () => {
+export const PrimerComponente = ({ titulo = 'mi primer componente props poer defecto', subtitulo = 5 }) => {
+  console.log(titulo)
+  console.log(subtitulo)
   return (
     <>
-      <div>{string}</div>
-      <div>{number}</div>
-      <div>{array}</div>
-      <div>{bollean}</div>
-      <div>{funcion()}</div>
-      <div>{JSON.stringify(obeject)}</div>
-      <div>{JSON.stringify(date)}</div>
+      <h1>Props:</h1>
+      <h1>{titulo}</h1>
+      <h1>{subtitulo + 1}</h1>
     </>
   )
+}
+
+PrimerComponente.prototype = {
+  titulo: PropTypes.string.isRequired,
+  subtitulo: PropTypes.number.isRequired
 }
 

@@ -1,0 +1,11 @@
+div {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    color: white;
+    display: flex;
+    text-align: center;
+}

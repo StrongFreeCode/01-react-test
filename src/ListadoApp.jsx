@@ -12,22 +12,33 @@ export const ListadoApp = () => {
     setArreglo([...arreglo, { nombre: 'nuevo', visto: true}])
   }
   let listadoCursos = [
-    { nombre: 'logica', visto: true },
-    { nombre: 'variables', visto: true },
-    { nombre: 'eventos', visto: true },
-    { nombre: 'useState', visto: true },
-    { nombre: 'hook', visto: true },
-    { nombre: 'redux', visto: false },
-    { nombre: 'customHook', visto: false }
+    { id:1, nombre: 'logica', visto: true },
+    { id:2, nombre: 'variables', visto: true },
+    { id:3, nombre: 'eventos', visto: true },
+    { id:4, nombre: 'useState', visto: true },
+    { id:5, nombre: 'hook', visto: true },
+    { id:6, nombre: 'redux', visto: false },
+    { id:7, nombre: 'customHook', visto: false }
    
   ]
   const [arreglo, setArreglo] = useState(listadoCursos)
+  const onEmitTask = (val) => {
+    let valor = val.trim()
+    if(valor<1) return
+    const envio = {
+            id: arreglo.length + 1,
+            nombre: valor,
+            visto: false
+    }
+    setArreglo([...arreglo, envio])
+
+  }
   return (
     <>
       <h1>Listado de Cursos:</h1>
-      <AddTask addTask={setArreglo}></AddTask>
+      <AddTask addTask={onEmitTask}></AddTask>
       <ol>
-       {arreglo.map(item => <Items key={item.nombre} nombre={item.nombre} visto={item.visto}></Items>)}        
+       {arreglo.map(item => <Items key={item.id} nombre={item.nombre} visto={item.visto}></Items>)}        
       </ol>
       <button onClick={()=> addTask()}>Click Me</button>
     </>

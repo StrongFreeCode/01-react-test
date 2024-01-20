@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { AddTask } from "./components/AddTask"
 
 const Items = ({nombre, visto}) => {
   return (
@@ -24,6 +25,7 @@ export const ListadoApp = () => {
   return (
     <>
       <h1>Listado de Cursos:</h1>
+      <AddTask></AddTask>
       <ol>
        {arreglo.map(item => <Items key={item.nombre} nombre={item.nombre} visto={item.visto}></Items>)}        
       </ol>

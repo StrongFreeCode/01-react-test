@@ -1,23 +1,33 @@
+import { useState } from "react"
+
 const Items = ({nombre, visto}) => {
   return (
-    <li>{nombre} {visto ? '✅': '⛔' }</li>
+    <li className="rojito">{nombre} {visto ? '✅': '⛔' }</li>
   )
 }
 
 export const ListadoApp = () => {
+  const addTask = ()=>{
+    setArreglo([...arreglo, { nombre: 'nuevo', visto: true}])
+  }
+  let listadoCursos = [
+    { nombre: 'logica', visto: true },
+    { nombre: 'variables', visto: true },
+    { nombre: 'eventos', visto: true },
+    { nombre: 'useState', visto: true },
+    { nombre: 'hook', visto: true },
+    { nombre: 'redux', visto: false },
+    { nombre: 'customHook', visto: false }
+   
+  ]
+  const [arreglo, setArreglo] = useState(listadoCursos)
   return (
     <>
       <h1>Listado de Cursos:</h1>
       <ol>
-        <Items nombre="logica" visto={true}></Items>
-        <Items nombre="variables" visto={true}></Items>
-        <Items nombre="eventos" visto={true}></Items>
-        <Items nombre="useState" visto={true}></Items>
-        <Items nombre="hook" visto={false}></Items>
-        <Items nombre="redux" visto={false}></Items>
-        <Items nombre="customHook" visto={false}></Items>
-        
+       {arreglo.map(item => <Items key={item.nombre} nombre={item.nombre} visto={item.visto}></Items>)}        
       </ol>
+      <button onClick={()=> addTask()}>Click Me</button>
     </>
   )
 }

@@ -25,7 +25,7 @@ export const ListadoApp = () => {
   return (
     <>
       <h1>Listado de Cursos:</h1>
-      <AddTask></AddTask>
+      <AddTask addTask={setArreglo}></AddTask>
       <ol>
        {arreglo.map(item => <Items key={item.nombre} nombre={item.nombre} visto={item.visto}></Items>)}        
       </ol>

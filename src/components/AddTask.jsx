@@ -1,12 +1,17 @@
 import { useState } from "react"
 
-export const AddTask = () => {
+export const AddTask = ({addTask}) => {
     const [inputValue, setInpuValue] = useState('')
     const onInputChange = (event) => {
         setInpuValue(event.target.value)      
     }
     const onSubmit = (event) => {
+        const envio = {
+            nombre: inputValue,
+            visto: false
+        }
         event.preventDefault()
+        addTask(task => [...task, envio])
         console.log(inputValue)
     }
     return (

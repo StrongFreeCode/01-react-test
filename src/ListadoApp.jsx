@@ -35,12 +35,18 @@ export const ListadoApp = () => {
   }
   return (
     <>
-      <h1>Listado de Cursos:</h1>
-      <AddTask addTask={onEmitTask}></AddTask>
-      <ol>
-       {arreglo.map(item => <Items key={item.id} nombre={item.nombre} visto={item.visto}></Items>)}        
-      </ol>
-      <button onClick={()=> addTask()}>Click Me</button>
+      <div className="flex-1">
+        <h1 className="text-3xl font-bold underline mb-2">Listado de Cursos:</h1>
+        <AddTask addTask={onEmitTask}></AddTask>
+        <ol>
+         {arreglo.map(item => <Items key={item.id} nombre={item.nombre} visto={item.visto}></Items>)}        
+        </ol>
+       
+      </div>
+      <div>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={()=> addTask()}>Click Me</button>
+      </div>
+       
     </>
   )
 }

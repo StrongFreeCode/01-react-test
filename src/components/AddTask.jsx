@@ -13,7 +13,7 @@ export const AddTask = ({addTask}) => {
     }
     return (
         <form onSubmit={onSubmit} action="">
-             <input type="text"
+             <input className="rounded" type="text"
             placeholder="Ingresa Tarea"
             value={inputValue}
             onChange={onInputChange }

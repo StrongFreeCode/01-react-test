@@ -8,10 +8,10 @@ import { ListadoApp } from './ListadoApp.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <div className="bg-cyan-500 hover:bg-cyan-600 transition-500 rounded py-1 px-2 flex flex-col">
+    <div className="bg-cyan-800 ml-2 hover:bg-cyan-600 transition-500 rounded py-1 px-2 flex flex-col hover:shadow-2xl">
       <ListadoApp />
     </div>
-    <div className='bg-cyan-700 hover:bg-cyan-600 transition-500 rounded py-1 px-2 flex flex-col'>
+    <div className='bg-cyan-800 ml-2 hover:bg-cyan-600 transition-500 rounded py-1 px-2 flex flex-col hover:shadow-2xl'>
        <UserApp />
     </div>
    

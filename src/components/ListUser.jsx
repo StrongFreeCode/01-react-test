@@ -1,23 +1,8 @@
 import { useEffect, useState } from "react"
+import { useFetchData } from "./hook/useFetchData"
 
 export const ListUser = ({ endPoint }) => {
-    const [data, setData] = useState([])
-
-    const fecthdata = async () => {
-        try {
-            const response = await fetch(`https://jsonplaceholder.typicode.com/${endPoint}`)
-            const data = await response.json()
-            console.log(data)
-            setData(data)
-           
-        } catch (error) {
-            console.error(error)
-        }
-        
-    }
-    useEffect(() => {
-        fecthdata()
-    }, [endPoint])
+  const {data, isloading} = useFetchData(endPoint)
   return (
       <>
           <div className="flex-1">
